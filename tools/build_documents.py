@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build ElectricalSkart Diwali 2026 documents:
    .docx (editable), .pdf (print-ready, IM-rendered pages), .txt (copy-paste)."""
-import os, re, subprocess, sys
+import argparse, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import CONTENT, CARD_FOR
+from content import (CONTENT, CARD_FOR, resolve_salutation, name_field,
+                     NAME_FIELD_LABEL, NAME_FIELD_HINT, BLANK_PRINT, BLANK_TXT)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONTS = os.path.join(ROOT, "assets", "fonts-static")
@@ -156,8 +157,39 @@ def render_page_bg(pb, kind):
     pb.y = 252
     return STRIP_H
 
-def build_pdf_pages(kind, lang, data):
+def name_box_pdf(pb, lang, name):
+    """Gold-framed 'ગ્રાહકનું નામ / Customer Name' row — a real space to write
+    the name in by hand, or the supplied name printed on the line."""
+    h = 66
+    pb.ensure(h + 16)
+    y = pb.y
+    im(pb.path, "-fill", "#fdf7e6", "-stroke", GOLD_R, "-strokewidth", "2",
+       "-draw", f"roundrectangle {MX},{y} {MX+TEXT_W-1},{y+h} 10,10", "-stroke", "none", pb.path)
+    pad = 24
+    label = NAME_FIELD_LABEL[lang] + " :"
+    draw(pb.path, pb.path, label, F_SANS_B, 23, GOLD_D, y + 22, anchor="west", x=MX + pad)
+    x2 = int(MX + pad + text_width(F_SANS_B, 23, label) + 14)
+    avail = MX + TEXT_W - pad - x2
+    value = (name or "").strip()
+    if value:
+        draw(pb.path, pb.path, value, F_SERIF_SB, 27, MAROON, y + 18, anchor="west", x=x2)
+        vw = text_width(F_SERIF_SB, 27, value)
+        im(pb.path, "-fill", GOLD_R, "-stroke", "none",
+           "-draw", f"rectangle {x2},{y+52} {x2+vw:.0f},{y+54}", pb.path)
+    else:
+        dots = ""
+        while text_width(F_SANS, 25, dots + ".") <= avail:
+            dots += "."
+        draw(pb.path, pb.path, dots, F_SANS, 25, GRAY, y + 22, anchor="west", x=x2)
+        hint = NAME_FIELD_HINT[lang]
+        hw = text_width(F_SANS, 18, hint)
+        draw(pb.path, pb.path, hint, F_SANS, 18, GOLD_D, y + 44, anchor="west",
+             x=max(x2, MX + TEXT_W - pad - hw))
+    pb.y += h + 16
+
+def build_pdf_pages(kind, lang, data, name=None):
     tag = f"{kind}_{lang}".lower()
+    salutation = resolve_salutation(lang, name)
     pb = PageBuilder(tag)
     strip_h = render_page_bg(pb, kind)
 
@@ -177,12 +209,14 @@ def build_pdf_pages(kind, lang, data):
         pb.y += hero_h + 34
     else:
         draw(pb.path, pb.path, data["date"], F_SANS, 24, GRAY, pb.y, anchor="east", x=MX)
-        pb.y += 54
-        draw(pb.path, pb.path, data["salutation"], F_SERIF_XB, 31, MAROON, pb.y, anchor="west", x=MX)
+        pb.y += 50
+        name_box_pdf(pb, lang, name)
+        draw(pb.path, pb.path, salutation, F_SERIF_XB, 31, MAROON, pb.y, anchor="west", x=MX)
         pb.y += 58
 
     if kind == "Email":
-        draw(pb.path, pb.path, data["salutation"], F_SERIF_XB, 27, INK, pb.y, anchor="west", x=MX)
+        name_box_pdf(pb, lang, name)
+        draw(pb.path, pb.path, salutation, F_SERIF_XB, 27, INK, pb.y, anchor="west", x=MX)
         pb.y += 52
 
     bi = lang == "Bilingual"
@@ -235,7 +269,7 @@ def png_pages_to_pdf(pages, out_pdf):
     print("saved", out_pdf)
 
 # ---------------- DOCX ----------------
-def build_docx(kind, lang, data, out_path):
+def build_docx(kind, lang, data, out_path, name=None):
     import docx
     from docx import Document
     from docx.shared import Pt, Cm, RGBColor
@@ -281,6 +315,47 @@ def build_docx(kind, lang, data, out_path):
         bottom.set(qn('w:space'), '6'); bottom.set(qn('w:color'), color)
         borders.append(bottom); pPr.append(borders)
 
+    def name_box(doc, lang, name, after=10):
+        """Gold-framed row: 'ગ્રાહકનું નામ / Customer Name : ______'.
+        With no name it prints a dotted line to write on; with --name it
+        prints the name on the line."""
+        tbl = doc.add_table(rows=1, cols=1)
+        tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+        tblPr = tbl._tbl.tblPr
+        borders = OxmlElement('w:tblBorders')
+        for edge in ('top', 'left', 'bottom', 'right'):
+            el = OxmlElement(f'w:{edge}')
+            el.set(qn('w:val'), 'single'); el.set(qn('w:sz'), '8')
+            el.set(qn('w:space'), '0'); el.set(qn('w:color'), 'C9A24B')
+            borders.append(el)
+        tblPr.append(borders)
+        mar = OxmlElement('w:tblCellMar')
+        for side, w in (('top', 90), ('left', 150), ('bottom', 90), ('right', 150)):
+            el = OxmlElement(f'w:{side}')
+            el.set(qn('w:w'), str(w)); el.set(qn('w:type'), 'dxa')
+            mar.append(el)
+        tblPr.append(mar)
+        cell = tbl.cell(0, 0)
+        shd = OxmlElement('w:shd')
+        shd.set(qn('w:val'), 'clear'); shd.set(qn('w:color'), 'auto'); shd.set(qn('w:fill'), 'FDF7E6')
+        cell._tc.get_or_add_tcPr().append(shd)
+        p = cell.paragraphs[0]
+        p.paragraph_format.space_after = Pt(0)
+        set_run(p.add_run(NAME_FIELD_LABEL[lang] + " : "), 9.5, True, GOLDD_RGB)
+        value = (name or "").strip()
+        if value:
+            r = p.add_run(value)
+            set_run(r, 12, True, MAROON_RGB)
+            r.underline = True
+        else:
+            r = p.add_run("." * 46 + "  " + NAME_FIELD_HINT[lang])
+            set_run(r, 10.5, False, GRAY_RGB)
+            r.underline = True
+        sp = doc.add_paragraph()
+        sp.paragraph_format.space_after = Pt(after)
+        sp.paragraph_format.line_spacing = 0.1
+        return tbl
+
     doc = Document()
     # page setup
     for section in doc.sections:
@@ -310,10 +385,12 @@ def build_docx(kind, lang, data, out_path):
         p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_before = Pt(10); p.paragraph_format.space_after = Pt(12)
         p.add_run().add_picture(hero, width=Cm(16.4))
-        add_para(doc, data["salutation"], 11.5, True, INK_RGB, after=8)
+        name_box(doc, lang, name, after=8)
+        add_para(doc, resolve_salutation(lang, name), 11.5, True, INK_RGB, after=8)
     else:
-        add_para(doc, data["date"], 9.5, False, GRAY_RGB, align=WD_ALIGN_PARAGRAPH.RIGHT, after=14)
-        add_para(doc, data["salutation"], 12.5, True, MAROON_RGB, after=12, line=1.25)
+        add_para(doc, data["date"], 9.5, False, GRAY_RGB, align=WD_ALIGN_PARAGRAPH.RIGHT, after=10)
+        name_box(doc, lang, name, after=10)
+        add_para(doc, resolve_salutation(lang, name), 12.5, True, MAROON_RGB, after=12, line=1.25)
 
     bi = lang == "Bilingual"
     for text, st in data["paragraphs"]:
@@ -351,42 +428,74 @@ def build_docx(kind, lang, data, out_path):
     doc.save(out_path)
     print("saved", out_path)
 
-def build_txt(kind, lang, data):
+def build_txt(kind, lang, data, name=None, docs_dir=None):
     lines = ["ELECTRICALSKART.COM — www.ElectricalSkart.com",
              "દિવાળી ૨૦૨૬ · Diwali 2026", ""]
     if kind == "Email":
         lines += [f"Subject: {data['subject']}", ""]
     else:
         lines += [data["date"], ""]
-    lines += [data["salutation"], ""]
+    lines += [name_field(lang, name, blank=BLANK_TXT), "",
+              resolve_salutation(lang, name, blank=BLANK_TXT), ""]
     for text, st in data["paragraphs"]:
         lines += [text, ""]
     lines += data["closing"] + ["", data["ps"], "", "— www.ElectricalSkart.com"]
-    out = os.path.join(DOCS, f"ElectricalSkart-Diwali-{kind}-{lang}.txt")
+    out = os.path.join(docs_dir or DOCS, f"ElectricalSkart-Diwali-{kind}-{lang}{file_suffix(name)}.txt")
     with open(out, "w", encoding="utf-8") as f:
         f.write("\n".join(lines).strip() + "\n")
     print("saved", out)
 
+
+def file_suffix(name):
+    """'રમેશ પટેલ' -> '-રમેશ-પટેલ' so personalised copies never overwrite the
+    generic (write-the-name-yourself) versions."""
+    if not (name or "").strip():
+        return ""
+    slug = re.sub(r"[^\w\u0a80-\u0aff]+", "-", name.strip(), flags=re.UNICODE).strip("-")
+    return "-" + slug[:40]
+
 def main():
-    which = sys.argv[1] if len(sys.argv) > 1 else "all"
+    ap = argparse.ArgumentParser(
+        description="Build the ElectricalSkart Diwali 2026 letters / e-mails.")
+    ap.add_argument("which", nargs="?", default="all",
+                    choices=["all", "docx", "pdf", "txt"], help="which format to build")
+    ap.add_argument("--name", default=None,
+                    help='recipient name, e.g. --name "રમેશ પટેલ". '
+                         "Without it a dotted space to write the name is printed.")
+    ap.add_argument("--lang", default=None, choices=["Gujarati", "English", "Bilingual"],
+                    help="build one language only (default: all three)")
+    ap.add_argument("--kind", default=None, choices=["Letter", "Email"],
+                    help="build one document type only (default: both)")
+    ap.add_argument("--out", default=None,
+                    help="output folder (default: documents/, or documents/personal/ with --name)")
+    args = ap.parse_args()
+
+    which = args.which
+    name = (args.name or "").strip() or None
+    out_dir = args.out or (os.path.join(DOCS, "personal") if name else DOCS)
+    os.makedirs(out_dir, exist_ok=True)
+    langs = [args.lang] if args.lang else ["Gujarati", "English", "Bilingual"]
+    kinds = [args.kind] if args.kind else ["Letter", "Email"]
+    suffix = file_suffix(name)
+
     pdf_pages = {}
-    for kind in ["Letter", "Email"]:
-        for lang in ["Gujarati", "English", "Bilingual"]:
+    for kind in kinds:
+        for lang in langs:
             data = CONTENT[kind][lang]
-            base = f"ElectricalSkart-Diwali-{kind}-{lang}"
+            base = f"ElectricalSkart-Diwali-{kind}-{lang}{suffix}"
             if which in ("all", "docx"):
-                build_docx(kind, lang, data, os.path.join(DOCS, base + ".docx"))
+                build_docx(kind, lang, data, os.path.join(out_dir, base + ".docx"), name=name)
             if which in ("all", "txt"):
-                build_txt(kind, lang, data)
+                build_txt(kind, lang, data, name=name, docs_dir=out_dir)
             if which in ("all", "pdf"):
-                pages = build_pdf_pages(kind, lang, data)
+                pages = build_pdf_pages(kind, lang, data, name=name)
                 pdf_pages[(kind, lang)] = pages
-                png_pages_to_pdf(pages, os.path.join(DOCS, base + ".pdf"))
-    if which in ("all", "pdf"):
+                png_pages_to_pdf(pages, os.path.join(out_dir, base + ".pdf"))
+    if which in ("all", "pdf") and not name and not args.lang and not args.kind:
         # combined PDF: letters then emails
         from reportlab.pdfgen import canvas as rl_canvas
         from reportlab.lib.pagesizes import A4
-        out = os.path.join(DOCS, "ElectricalSkart-Diwali-2026-Letters-and-Emails-All.pdf")
+        out = os.path.join(out_dir, "ElectricalSkart-Diwali-2026-Letters-and-Emails-All.pdf")
         c = rl_canvas.Canvas(out, pagesize=A4)
         w, h = A4
         for kind in ["Letter", "Email"]:

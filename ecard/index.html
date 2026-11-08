@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#2b0a1e">
 <meta property="og:type" content="website">
 <meta property="og:title" content="શુભ દિવાળી | Happy Diwali 2026 — ElectricalSkart.com">
-<meta property="og:description" content="દીપોના પ્રકાશ સાથે તમારા જીવનમાં ખુશી અને સમૃદ્ધિ પથરાય. May the festival of lights fill your home with joy & prosperity.">
+<meta property="og:description" content="દીવાના પ્રકાશ સાથે તમારા જીવનમાં ખુશી અને સમૃદ્ધિ પથરાય. May the festival of lights fill your home with joy & prosperity.">
 <meta property="og:image" content="../cards/ElectricalSkart-Diwali-Card-BI.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>𓂀</text></svg>">
 <style>
@@ -72,6 +72,14 @@ main { position: relative; z-index: 3; }
 .hero-sub { margin: 22px auto 0; max-width: 640px; font-size: clamp(.95rem, 2vw, 1.18rem); color: #ffe9c4; text-shadow: 0 2px 10px #000; line-height: 1.65; }
 
 .cta-row { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.name-box { margin-top: 26px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.name-box label { font-size: .74rem; letter-spacing: .2em; color: var(--soft); text-transform: uppercase; font-weight: 700; text-shadow: 0 2px 8px #000; }
+.name-box input { width: min(440px, 86vw); padding: 13px 18px; border-radius: 14px; border: 1px solid rgba(255,209,102,.55); background: rgba(21,5,18,.62); color: var(--cream); font-family: 'NotoSansGujarati', sans-serif; font-size: 1.05rem; text-align: center; backdrop-filter: blur(6px); transition: border-color .2s, box-shadow .2s; }
+.name-box input::placeholder { color: #8d7a5e; }
+.name-box input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(255,209,102,.25); }
+.name-box .name-hint { font-size: .72rem; color: #a58d6f; }
+.to-name { margin-top: 16px; font-size: clamp(1.15rem, 3.4vw, 1.75rem); color: var(--cream); font-family: 'NotoSerifGujarati', serif; font-weight: 700; text-shadow: 0 2px 14px #000; line-height: 1.5; }
+.to-name b { color: var(--gold); }
 .btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; font-weight: 800; font-family: 'NotoSansGujarati', sans-serif; border-radius: 14px; padding: 15px 26px; font-size: clamp(.85rem, 1.6vw, 1rem); transition: transform .18s, box-shadow .18s, background .18s; border: 0; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(1px) scale(.98); }
@@ -163,10 +171,22 @@ footer .f-small { margin-top: 10px; font-size: .72rem; color: #a58d6f; line-heig
     </h1>
 
     <p class="hero-sub">
-      <span data-l="gu">દીપોના પ્રકાશ સાથે તમારા જીવનમાં ખુશી, સમૃદ્ધિ અને સ્મિત પથરાય — ElectricalSkart.com તરફથી હાર્દિક શુભેચ્છાઓ.</span><br data-l="gu">
+      <span data-l="gu">દીવાના પ્રકાશ સાથે તમારા જીવનમાં ખુશી, સમૃદ્ધિ અને સ્મિત પથરાય — ElectricalSkart.com તરફથી હાર્દિક શુભેચ્છાઓ.</span><br data-l="gu">
       <span data-l="bi-sep" style="opacity:.85">· · ·</span><br data-l="bi-sep">
       <span data-l="en">May the festival of lights shower your life with joy, prosperity and sparkle — warm wishes from ElectricalSkart.com.</span>
     </p>
+
+    <div class="to-name" id="toName" hidden>
+      <span data-l="gu">પ્રિય <b id="toNameGu"></b>,</span><br data-l="gu">
+      <span data-l="en" style="font-family:'PlayfairDisplay',serif">Dear <b id="toNameEn"></b>,</span>
+    </div>
+
+    <div class="name-box">
+      <label for="nameInput"><span data-l="gu">નામ લખો</span><span data-l="bi-sep"> · </span><span data-l="en">Write a name</span></label>
+      <input id="nameInput" type="text" maxlength="40" autocomplete="off" spellcheck="false"
+             placeholder="રમેશ પટેલ / Ramesh Patel" aria-label="ગ્રાહકનું નામ / Customer name">
+      <span class="name-hint"><span data-l="gu">નામ લખો અથવા લિંકમાં ?to=નામ મૂકો — શુભેચ્છા એ નામે થશે</span><span data-l="bi-sep"> · </span><span data-l="en">type a name, or share the link with ?to=name — the greeting follows</span></span>
+    </div>
 
     <div class="cta-row">
       <a class="btn btn-gold" href="https://www.ElectricalSkart.com" target="_blank" rel="noopener">
@@ -186,8 +206,8 @@ footer .f-small { margin-top: 10px; font-size: .72rem; color: #a58d6f; line-heig
         <span data-l="gu">દિવો પ્રગટાવો</span><span data-l="bi-sep"> · </span><span data-l="en">Light a Diya</span>
       </button>
       <div class="diya-wish" id="diyaWish">
-        <span data-l="gu">પાંચ દીવા પ્રગટ્યા — તમને હાર્દિક શુભેચ્છાઓ!</span><br data-l="gu">
-        <span data-l="en">Five diyas, one big wish — Happy Diwali!</span>
+        <span data-l="gu" id="wishGu">પાંચ દીવા પ્રગટ્યા — તમને હાર્દિક શુભેચ્છાઓ!</span><br data-l="gu">
+        <span data-l="en" id="wishEn">Five diyas, one big wish — Happy Diwali!</span>
       </div>
     </div>
   </div>
@@ -199,7 +219,7 @@ footer .f-small { margin-top: 10px; font-size: .72rem; color: #a58d6f; line-heig
 <section class="section" id="tips">
   <div class="kicker">ElectricalSkart.com · Diwali 2026</div>
   <h2 class="section-title">
-    <span data-l="gu">દિવાળીમાં ત્રણ ધ્યાનની વાતો</span><br data-l="bi-sep">
+    <span data-l="gu">દિવાળીમાં ધ્યાન રાખવાની ત્રણ બાબતો</span><br data-l="bi-sep">
     <span data-l="en" style="font-family:'PlayfairDisplay',serif">Three Things to Remember This Diwali</span>
   </h2>
   <div class="cards">
@@ -208,21 +228,21 @@ footer .f-small { margin-top: 10px; font-size: .72rem; color: #a58d6f; line-heig
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M13 2L5 14h6l-1.5 8L19 10h-6l1.5-8z" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round" fill="rgba(255,209,102,.15)"/></svg>
       </div>
       <h3>સલામત પ્રકાશ<small>Safe Light</small></h3>
-      <p><span data-l="gu">ફેરી લાઇટ્સના લગાડતા પહેલા વાયર અને પ્લગની તપાસ કરો — ISI માર્કવાળી પ્રોડક્ટ જ પસંદ કરો.</span><br data-l="bi-sep"><span data-l="en">Check wires and plugs before hanging fairy lights — always choose ISI-marked products from ElectricalSkart.com.</span></p>
+      <p><span data-l="gu">ઝાલર (ફેરી લાઈટો) લગાવતાં પહેલાં વાયર અને પ્લગની તપાસ કરો — ISI માર્કવાળાં ઉત્પાદનો જ પસંદ કરો.</span><br data-l="bi-sep"><span data-l="en">Check wires and plugs before hanging fairy lights — always choose ISI-marked products from ElectricalSkart.com.</span></p>
     </div>
     <div class="tip">
       <div class="icon">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 19v-4.5h4V19" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round"/></svg>
       </div>
-      <h3>ઝગમગ ઘર, સાચો ભાવ<small>Bright Home, Honest Price</small></h3>
-      <p><span data-l="gu">ચાણંદેલિયરથી ફેરી લાઇટ્સ સુધી — તહેવારનું બધું એક જ જગ્યાએ, પ્રમાણિક ભાવે.</span><br data-l="bi-sep"><span data-l="en">From chandeliers to fairy lights — everything festive in one place, at honest prices.</span></p>
+      <h3>ઝગમગતું ઘર, વાજબી ભાવ<small>Bright Home, Honest Price</small></h3>
+      <p><span data-l="gu">ઝુમ્મરથી ઝાલર સુધી — તહેવારનું બધું જ એક જ જગ્યાએ, વાજબી ભાવે.</span><br data-l="bi-sep"><span data-l="en">From chandeliers to fairy lights — everything festive in one place, at honest prices.</span></p>
     </div>
     <div class="tip">
       <div class="icon">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M2 7h12v10H2zM14 10h4.5L21 13.5V17h-7" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="1.4" stroke="#ffd166" stroke-width="1.5"/><circle cx="17.5" cy="17.5" r="1.4" stroke="#ffd166" stroke-width="1.5"/></svg>
       </div>
       <h3>સીધી તમારા ઘર સુધી<small>Delivered To Your Door</small></h3>
-      <p><span data-l="gu">ઓર્ડર કરો અને તહેવાર પહેલા ઘર આવો — આખું ઇન્ડિયા, ઝડપી ડિલિવરી.</span><br data-l="bi-sep"><span data-l="en">Order today and have it delivered before the festival — fast shipping, genuine products, every time.</span></p>
+      <p><span data-l="gu">ઓર્ડર કરો અને તહેવાર પહેલાં તમારા ઘર સુધી પહોંચાડીએ — આખા ભારતમાં ઝડપી ડિલિવરી.</span><br data-l="bi-sep"><span data-l="en">Order today and have it delivered before the festival — fast shipping, genuine products, every time.</span></p>
     </div>
   </div>
 </section>
@@ -353,9 +373,15 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2600);
 }
 document.getElementById('shareBtn').addEventListener('click', async () => {
-  const url = window.location.href;
-  const title = 'શુભ દિવાળી! Happy Diwali 2026 — ElectricalSkart.com';
-  const text = 'દિવાળીની હાર્દિક શુભેચ્છાઓ! Warm greetings from ElectricalSkart.com — www.ElectricalSkart.com';
+  const nm = (window.__ecardName && window.__ecardName()) || '';
+  let url = window.location.href.split('?')[0].split('#')[0];
+  if (nm) url += '?to=' + encodeURIComponent(nm);
+  const title = nm
+    ? `શુભ દિવાળી, ${nm}! Happy Diwali 2026 — ElectricalSkart.com`
+    : 'શુભ દિવાળી! Happy Diwali 2026 — ElectricalSkart.com';
+  const text = nm
+    ? `${nm} માટે દિવાળીની હાર્દિક શુભેચ્છાઓ! Warm Diwali wishes for ${nm} from ElectricalSkart.com — www.ElectricalSkart.com`
+    : 'દિવાળીની હાર્દિક શુભેચ્છાઓ! Warm greetings from ElectricalSkart.com — www.ElectricalSkart.com';
   try {
     if (navigator.share) { await navigator.share({ title, text, url }); return; }
     throw new Error('no-share');
@@ -364,6 +390,35 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
     catch (err) { showToast('ElectricalSkart.com'); }
   }
 });
+
+/* ───────────── recipient name (the "write a name" field) ───────────── */
+(function nameField() {
+  const input = document.getElementById('nameInput');
+  const wrap = document.getElementById('toName');
+  const guEl = document.getElementById('toNameGu');
+  const enEl = document.getElementById('toNameEn');
+  const wishGu = document.getElementById('wishGu');
+  const wishEn = document.getElementById('wishEn');
+  const GU_WISH = 'પાંચ દીવા પ્રગટ્યા — તમને હાર્દિક શુભેચ્છાઓ!';
+  const EN_WISH = 'Five diyas, one big wish — Happy Diwali!';
+  function setName(v) {
+    v = (v || '').trim().slice(0, 40);
+    guEl.textContent = v;
+    enEl.textContent = v;
+    wrap.hidden = !v;
+    wishGu.textContent = v ? `પાંચ દીવા પ્રગટ્યા — ${v}, તમને હાર્દિક શુભેચ્છાઓ!` : GU_WISH;
+    wishEn.textContent = v ? `Five diyas, one big wish — Happy Diwali, ${v}!` : EN_WISH;
+    try { if (v) localStorage.setItem('ecard-to', v); else localStorage.removeItem('ecard-to'); } catch (e) {}
+  }
+  input.addEventListener('input', () => setName(input.value));
+  let init = '';
+  try {
+    init = new URLSearchParams(location.search).get('to') || localStorage.getItem('ecard-to') || '';
+  } catch (e) {}
+  if (init) input.value = init;
+  setName(input.value);
+  window.__ecardName = () => (input.value || '').trim();
+})();
 
 /* ───────────── light-a-diya ───────────── */
 (function diyas() {

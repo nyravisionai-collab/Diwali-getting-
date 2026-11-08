@@ -10,3 +10,7 @@ __pycache__/
 # os junk
 .DS_Store
 Thumbs.db
+
+# on-demand personalised output (build with: python3 tools/personalize.py --name "…")
+cards/personal/
+documents/personal/
