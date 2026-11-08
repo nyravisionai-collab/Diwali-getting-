@@ -1,0 +1,12 @@
+# build tooling & caches (fonts are vendored in assets/fonts-static/)
+.build/
+node_modules/
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# os junk
+.DS_Store
+Thumbs.db
