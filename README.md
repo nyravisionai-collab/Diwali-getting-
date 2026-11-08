@@ -3,7 +3,9 @@
 **ElectricalSkart.com તરફથી દિવાળીના ગ્રીટીંગ કાર્ડ, ઈમેલ અને લેટર — ગુજરાતી, અંગ્રેજી અને બાયલિંગ્વલ (ગુજરાતી + અંગ્રેજી).**
 Diwali greeting assets for [ElectricalSkart.com](https://www.ElectricalSkart.com) — cards, e-mail and letter — in **Gujarati**, **English** and **Bilingual**.
 
-તારીખ: **૮ નવેમ્બર ૨૦૬ · 8 November 2026** (લક્ષ્મી પૂજા / Lakshmi Puja, Diwali 2026)
+તારીખ: **૮ નવેમ્બર ૨૦૨૬ · 8 November 2026** (લક્ષ્મી પૂજા / Lakshmi Puja, Diwali 2026)
+
+🌐 **લાઈવ સાઇટ / Live site:** <https://nyravisionai-collab.github.io/Diwali-getting-/> — GitHub Pages પર હોસ્ટ કરેલી છે (`docs/` ← `ecard/` ની નકલ; `main` પર push થતાં આપમેળે publish થાય છે).
 
 ---
 
@@ -75,6 +77,16 @@ AI-રચિત દીવા-ચાંદની આર્ટવર્ક + Image
 - PDF પેજ છબી તરીકે રેન્ડર થયેલું છે, તેને Word માં સંપાદિત કરી શકાય નહીં → સંપાદન માટે .docx વાપરો
 
 ## 🌐 ઈ-કાર્ડ જોવાની રીત / Viewing the e-card
+
+લાઈવ લિંક / Live link: **<https://nyravisionai-collab.github.io/Diwali-getting-/>** (GitHub Pages, `main` બ્રાન્ચના `/docs` ફોલ્ડરમાંથી).
+
+`docs/` એ `ecard/` ની પ્રકાશિત નકલ છે — ઈ-કાર્ડ બદલો ત્યારે તેને પણ સિંક કરો:
+
+```bash
+cp -a ecard/. docs/
+```
+
+સ્થાનિક રીતે ચલાવવા માટે / To run locally:
 
 ```bash
 python3 -m http.server 8080
