@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="gu" data-lang="bi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>શુભ દિવાળી | Happy Diwali 2026 — ElectricalSkart.com</title>
+<meta name="description" content="ElectricalSkart.com તરફથી દિવાળી 2026ની હાર્દિક શુભેચ્છાઓ. Warm wishes from ElectricalSkart.com on Diwali 2026 — the festival of lights.">
+<meta name="theme-color" content="#2b0a1e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="શુભ દિવાળી | Happy Diwali 2026 — ElectricalSkart.com">
+<meta property="og:description" content="દીપોના પ્રકાશ સાથે તમારા જીવનમાં ખુશી અને સમૃદ્ધિ પથરાય. May the festival of lights fill your home with joy & prosperity.">
+<meta property="og:image" content="../cards/ElectricalSkart-Diwali-Card-BI.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>𓂀</text></svg>">
+<style>
+@font-face { font-family: 'NotoSerifGujarati'; src: url('assets/fonts/NotoSerifGujarati-VF.ttf') format('truetype-variations'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'NotoSansGujarati'; src: url('assets/fonts/NotoSansGujarati-VF.ttf') format('truetype-variations'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'PlayfairDisplay'; src: url('assets/fonts/PlayfairDisplay-VF.ttf') format('truetype-variations'); font-weight: 400 900; font-display: swap; }
+
+:root {
+  --gold: #ffd166; --gold-2: #f4a261; --gold-deep: #a4761c;
+  --cream: #ffedc9; --soft: #e9cfa4;
+  --maroon: #2b0a1e; --plum: #43102f; --deep: #150512;
+  --ink: #ffedc9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--deep); color: var(--cream); font-family: 'NotoSansGujarati', 'NotoSerifGujarati', sans-serif; overflow-x: hidden; }
+
+/* ---------- language switching ---------- */
+html[data-lang="gu"] [data-l="en"], html[data-lang="en"] [data-l="gu"],
+html[data-lang="en"] [data-l="bi-sep"], html[data-lang="gu"] [data-l="bi-sep"] { display: none !important; }
+
+/* ---------- fireworks canvas ---------- */
+#fw { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+
+/* ---------- falling petals ---------- */
+#petals { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.petal { position: absolute; top: -40px; border-radius: 62% 38% 55% 45% / 70% 40% 60% 30%; opacity: .9; animation: fall linear infinite; }
+@keyframes fall {
+  0% { transform: translate3d(0,-5vh,0) rotate(0deg); opacity: 0; }
+  8% { opacity: .95; }
+  100% { transform: translate3d(var(--drift, 12vw), 108vh, 0) rotate(var(--spin, 720deg)); opacity: .75; }
+}
+
+main { position: relative; z-index: 3; }
+
+/* ---------- hero ---------- */
+.hero {
+  min-height: 100svh; position: relative; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 118%, rgba(21,5,18,.88) 0%, rgba(21,5,18,0) 55%),
+    linear-gradient(180deg, rgba(21,5,18,.82) 0%, rgba(43,10,30,.18) 34%, rgba(43,10,30,.10) 55%, rgba(21,5,18,.78) 100%),
+    url('assets/diwali-art.jpg') center 30% / cover no-repeat, var(--maroon);
+}
+.brandbar { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 18px clamp(16px, 4vw, 44px); z-index: 5; }
+.lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.lockup .bolt { width: 34px; height: 34px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(255,209,102,.55)); }
+.lockup .name { font-family: 'PlayfairDisplay', serif; font-weight: 800; letter-spacing: .16em; font-size: clamp(.72rem, 1.6vw, .95rem); color: var(--cream); }
+.lockup .name b { color: var(--gold); font-weight: 800; }
+
+.lang-toggle { display: flex; gap: 6px; background: rgba(21,5,18,.55); border: 1px solid rgba(255,209,102,.35); backdrop-filter: blur(8px); padding: 6px; border-radius: 999px; }
+.lang-toggle button { cursor: pointer; border: 0; border-radius: 999px; padding: 8px 16px; font-family: 'NotoSansGujarati', sans-serif; font-size: .82rem; font-weight: 700; color: var(--soft); background: transparent; transition: all .25s; }
+.lang-toggle button:hover { color: var(--gold); }
+.lang-toggle button.active { background: var(--gold); color: #3a1030; box-shadow: 0 0 14px rgba(255,209,102,.45); }
+
+.hero-inner { position: relative; padding: 90px 20px 60px; max-width: 1050px; }
+.eyebrow { font-family: 'PlayfairDisplay', serif; letter-spacing: .34em; color: var(--soft); font-size: clamp(.66rem, 1.4vw, .82rem); margin-bottom: 18px; text-shadow: 0 2px 12px #000; }
+.diwali-title { font-family: 'NotoSerifGujarati', serif; font-weight: 800; line-height: 1.12; color: var(--gold); font-size: clamp(2.6rem, 9.2vw, 5.4rem); text-shadow: 0 0 34px rgba(255,157,0,.55), 0 4px 0 #6b2f00, 0 10px 44px #000; }
+.diwali-title.en { font-family: 'PlayfairDisplay', serif; font-weight: 900; letter-spacing: .01em; }
+.diwali-title.gu-lg { margin-top: 4px; }
+.hero-sub { margin: 22px auto 0; max-width: 640px; font-size: clamp(.95rem, 2vw, 1.18rem); color: #ffe9c4; text-shadow: 0 2px 10px #000; line-height: 1.65; }
+
+.cta-row { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; font-weight: 800; font-family: 'NotoSansGujarati', sans-serif; border-radius: 14px; padding: 15px 26px; font-size: clamp(.85rem, 1.6vw, 1rem); transition: transform .18s, box-shadow .18s, background .18s; border: 0; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn-gold { background: linear-gradient(160deg, #ffd166, #f4a261); color: #3a1030; box-shadow: 0 6px 26px rgba(255,209,102,.4), inset 0 1px 0 #fff8; }
+.btn-gold:hover { box-shadow: 0 10px 34px rgba(255,209,102,.55); }
+.btn-ghost { background: rgba(21,5,18,.45); color: var(--gold); border: 1px solid rgba(255,209,102,.55); backdrop-filter: blur(6px); }
+.btn-ghost:hover { background: rgba(255,209,102,.12); }
+
+/* ---------- diya lighting game ---------- */
+.diya-zone { margin-top: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.diya-row { display: flex; gap: clamp(10px, 2.6vw, 26px); }
+.diya-btn { background: transparent; border: 0; cursor: pointer; padding: 6px; transition: transform .2s; }
+.diya-btn:hover { transform: scale(1.12); }
+.diya-flame { opacity: 0; transform-origin: 50% 92%; }
+.diya.lit .diya-flame { opacity: 1; animation: flick .16s infinite alternate ease-in-out; }
+.diya.lit .diya-glow { opacity: 1; }
+.diya-glow { opacity: 0; transition: opacity .5s; }
+@keyframes flick { from { transform: scaleY(.86) skewX(-4deg); } to { transform: scaleY(1.12) skewX(5deg); } }
+.diya-counter { font-size: .8rem; color: var(--soft); letter-spacing: .08em; }
+.diya-wish { font-size: clamp(.85rem, 1.8vw, 1.02rem); color: var(--gold); font-weight: 700; opacity: 0; transform: translateY(8px); transition: all .6s; text-shadow: 0 2px 12px #000; }
+.diya-wish.show { opacity: 1; transform: translateY(0); }
+
+.scroll-cue { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color: var(--soft); font-size: .72rem; letter-spacing: .22em; opacity: .85; animation: bob 1.6s infinite ease-in-out; }
+@keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+/* ---------- sections ---------- */
+.section { padding: clamp(54px, 9vh, 96px) clamp(18px, 5vw, 70px); max-width: 1200px; margin: 0 auto; }
+.kicker { text-align: center; font-family: 'PlayfairDisplay', serif; letter-spacing: .3em; font-size: .7rem; color: var(--gold-deep); text-transform: uppercase; margin-bottom: 14px; }
+.section-title { text-align: center; font-family: 'NotoSerifGujarati', serif; font-weight: 800; color: var(--gold); font-size: clamp(1.35rem, 3.6vw, 2.1rem); margin-bottom: 40px; text-shadow: 0 0 18px rgba(255,157,0,.25); }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2.4vw, 26px); }
+@media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+.tip { background: linear-gradient(170deg, rgba(67,16,47,.75), rgba(21,5,18,.85)); border: 1px solid rgba(255,209,102,.28); border-radius: 20px; padding: 26px 24px 24px; text-align: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 18px 44px rgba(0,0,0,.35); transition: transform .25s, border-color .25s; }
+.tip:hover { transform: translateY(-5px); border-color: rgba(255,209,102,.6); }
+.tip .icon { width: 74px; height: 74px; margin: 0 auto 16px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 50% 40%, rgba(255,209,102,.22), rgba(255,209,102,.05) 70%); border: 1px solid rgba(255,209,102,.4); }
+.tip h3 { color: var(--cream); font-family: 'NotoSerifGujarati', serif; font-size: 1.02rem; margin-bottom: 8px; line-height: 1.45; }
+.tip h3 small { display: block; color: var(--soft); font-family: 'PlayfairDisplay', serif; font-size: .68rem; letter-spacing: .18em; margin-top: 4px; text-transform: uppercase; }
+.tip p { color: #d9c6a8; font-size: .83rem; line-height: 1.6; }
+
+.wishes { text-align: center; padding: clamp(60px, 10vh, 110px) 20px; background: radial-gradient(90% 120% at 50% 50%, rgba(255,157,0,.07), transparent 60%); }
+.wishes blockquote { font-family: 'NotoSerifGujarati', serif; font-weight: 700; font-size: clamp(1.25rem, 4vw, 2.05rem); line-height: 1.55; color: var(--cream); max-width: 900px; margin: 0 auto; }
+.wishes blockquote .en { color: var(--gold); font-family: 'PlayfairDisplay', serif; font-style: italic; font-weight: 700; }
+.divider { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 26px auto 0; }
+.divider .line { width: clamp(40px, 12vw, 120px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold-2), transparent); }
+.divider .dot { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); box-shadow: 0 0 8px rgba(255,209,102,.8); }
+
+/* ---------- footer ---------- */
+footer { border-top: 1px solid rgba(255,209,102,.25); background: #0f0310; padding: 30px 20px 36px; text-align: center; }
+footer .f-brand { font-family: 'PlayfairDisplay', serif; font-weight: 800; letter-spacing: .18em; color: var(--gold); font-size: .8rem; }
+footer a { color: var(--soft); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+footer .f-small { margin-top: 10px; font-size: .72rem; color: #a58d6f; line-height: 1.8; }
+
+.toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); z-index: 30; background: #ffd166; color: #3a1030; font-weight: 800; padding: 12px 22px; border-radius: 12px; opacity: 0; pointer-events: none; transition: all .3s; font-size: .85rem; box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; scroll-behavior: auto !important; }
+  #petals { display: none; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="fw"></canvas>
+<div id="petals"></div>
+
+<main>
+<!-- ══════════ HERO ══════════ -->
+<header class="hero" id="top">
+  <div class="brandbar">
+    <a class="lockup" href="https://www.ElectricalSkart.com" target="_blank" rel="noopener">
+      <svg class="bolt" viewBox="0 0 64 64" aria-hidden="true"><path d="M36 4 L14 38 L28 38 L22 60 L50 24 L34 24 L44 4 Z" fill="#ffd166" stroke="#6b3f00" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      <span class="name">ELECTRICALSKART<b>.COM</b></span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Language / ભાષા">
+      <button data-setlang="gu">ગુજરાતી</button>
+      <button data-setlang="en">English</button>
+      <button data-setlang="bi" class="active">બંને · Both</button>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="eyebrow">E L E C T R I C A L S K A R T . C O M</div>
+
+    <h1>
+      <div class="diwali-title" data-l="gu">શુભ દિવાળી</div>
+      <div class="diwali-title en" data-l="en" style="margin-top:.1em">Happy Diwali</div>
+    </h1>
+
+    <p class="hero-sub">
+      <span data-l="gu">દીપોના પ્રકાશ સાથે તમારા જીવનમાં ખુશી, સમૃદ્ધિ અને સ્મિત પથરાય — ElectricalSkart.com તરફથી હાર્દિક શુભેચ્છાઓ.</span><br data-l="gu">
+      <span data-l="bi-sep" style="opacity:.85">· · ·</span><br data-l="bi-sep">
+      <span data-l="en">May the festival of lights shower your life with joy, prosperity and sparkle — warm wishes from ElectricalSkart.com.</span>
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://www.ElectricalSkart.com" target="_blank" rel="noopener">
+        <span data-l="gu">તહેવારી રેન્જ જુઓ</span><span data-l="bi-sep"> · </span><span data-l="en">Shop the Diwali range</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="btn btn-ghost" id="shareBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v13m0-13l-4 4m4-4l4 4M4 21h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-l="gu">શુભેચ્છા શેર કરો</span><span data-l="bi-sep"> · </span><span data-l="en">Share this greeting</span>
+      </button>
+    </div>
+
+    <!-- lighting diyas interaction -->
+    <div class="diya-zone">
+      <div class="diya-row" id="diyaRow" aria-hidden="true"></div>
+      <button class="btn btn-ghost" id="lightDiyaBtn" style="padding:10px 22px;font-size:.82rem">
+        <span data-l="gu">દિવો પ્રગટાવો</span><span data-l="bi-sep"> · </span><span data-l="en">Light a Diya</span>
+      </button>
+      <div class="diya-wish" id="diyaWish">
+        <span data-l="gu">પાંચ દીવા પ્રગટ્યા — તમને હાર્દિક શુભેચ્છાઓ!</span><br data-l="gu">
+        <span data-l="en">Five diyas, one big wish — Happy Diwali!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span data-l="gu">નીચે સ્ક્રોલ કરો</span><span data-l="bi-sep"> · </span><span data-l="en">SCROLL</span> ↓</div>
+</header>
+
+<!-- ══════════ 3 DIWALI TIPS ══════════ -->
+<section class="section" id="tips">
+  <div class="kicker">ElectricalSkart.com · Diwali 2026</div>
+  <h2 class="section-title">
+    <span data-l="gu">દિવાળીમાં ત્રણ ધ્યાનની વાતો</span><br data-l="bi-sep">
+    <span data-l="en" style="font-family:'PlayfairDisplay',serif">Three Things to Remember This Diwali</span>
+  </h2>
+  <div class="cards">
+    <div class="tip">
+      <div class="icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M13 2L5 14h6l-1.5 8L19 10h-6l1.5-8z" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round" fill="rgba(255,209,102,.15)"/></svg>
+      </div>
+      <h3>સલામત પ્રકાશ<small>Safe Light</small></h3>
+      <p><span data-l="gu">ફેરી લાઇટ્સના લગાડતા પહેલા વાયર અને પ્લગની તપાસ કરો — ISI માર્કવાળી પ્રોડક્ટ જ પસંદ કરો.</span><br data-l="bi-sep"><span data-l="en">Check wires and plugs before hanging fairy lights — always choose ISI-marked products from ElectricalSkart.com.</span></p>
+    </div>
+    <div class="tip">
+      <div class="icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5M5.5 10v9h13v-9" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 19v-4.5h4V19" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>ઝગમગ ઘર, સાચો ભાવ<small>Bright Home, Honest Price</small></h3>
+      <p><span data-l="gu">ચાણંદેલિયરથી ફેરી લાઇટ્સ સુધી — તહેવારનું બધું એક જ જગ્યાએ, પ્રમાણિક ભાવે.</span><br data-l="bi-sep"><span data-l="en">From chandeliers to fairy lights — everything festive in one place, at honest prices.</span></p>
+    </div>
+    <div class="tip">
+      <div class="icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M2 7h12v10H2zM14 10h4.5L21 13.5V17h-7" stroke="#ffd166" stroke-width="1.8" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="1.4" stroke="#ffd166" stroke-width="1.5"/><circle cx="17.5" cy="17.5" r="1.4" stroke="#ffd166" stroke-width="1.5"/></svg>
+      </div>
+      <h3>સીધી તમારા ઘર સુધી<small>Delivered To Your Door</small></h3>
+      <p><span data-l="gu">ઓર્ડર કરો અને તહેવાર પહેલા ઘર આવો — આખું ઇન્ડિયા, ઝડપી ડિલિવરી.</span><br data-l="bi-sep"><span data-l="en">Order today and have it delivered before the festival — fast shipping, genuine products, every time.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WISH ══════════ -->
+<section class="wishes">
+  <blockquote>
+    <span data-l="gu">“દિવાળીનો પ્રકાશ તમારા જીવનના દરેક ખૂણાને રોશન કરે — દરેક દીવો એક નવી આશાની કહાણી કહે.”</span><span data-l="bi-sep" style="display:block;height:16px"></span>
+    <span class="en" data-l="en">“May the light of Diwali reach every corner of your life,<br>and every diya tell a story of new beginnings.”</span>
+  </blockquote>
+  <div class="divider"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+  <p style="margin-top:18px;color:var(--soft);font-size:.82rem;letter-spacing:.14em">— ટીમ ELECTRICALSKART · TEAM ELECTRICALSKART</p>
+</section>
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="f-brand">ELECTRICALSKART.COM</div>
+  <div class="f-small">
+    <a href="https://www.ElectricalSkart.com" target="_blank" rel="noopener">www.ElectricalSkart.com</a><br>
+    <span data-l="gu">દિવાળી ૨૦૨૬ · ૮ નવેમ્બર · લક્ષ્મી પૂજા · તમારા ઘર માટે ઈલેક્ટ્રિકલ સોલ્યુશન</span><br data-l="bi-sep">
+    <span data-l="en">Diwali 2026 · 8 November · Lakshmi Puja · Your home's electrical solutions</span><br>
+    © 2026 ElectricalSkart.com — <span data-l="gu">તમારા સહકાર બદલ આભાર</span><span data-l="bi-sep"> · </span><span data-l="en">thank you for your trust</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ───────────── language toggle ───────────── */
+const root = document.documentElement;
+const toggleBtns = document.querySelectorAll('[data-setlang]');
+function setLang(l) {
+  root.setAttribute('data-lang', l);
+  root.setAttribute('lang', l === 'en' ? 'en' : 'gu');
+  toggleBtns.forEach(b => b.classList.toggle('active', b.dataset.setlang === l));
+  try { localStorage.setItem('ecard-lang', l); } catch (e) {}
+}
+toggleBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.setlang)));
+try { const saved = localStorage.getItem('ecard-lang'); if (saved) setLang(saved); } catch (e) {}
+
+/* ───────────── falling marigold petals ───────────── */
+(function petals() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wrap = document.getElementById('petals');
+  const colors = ['#ffb703', '#fb8500', '#ffd166', '#f4a261', '#ff9e4f'];
+  for (let i = 0; i < 26; i++) {
+    const p = document.createElement('span');
+    p.className = 'petal';
+    const size = 9 + Math.random() * 14;
+    p.style.width = size + 'px';
+    p.style.height = size * 0.8 + 'px';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.background = `radial-gradient(circle at 35% 35%, ${colors[i % 5]}, ${colors[(i + 2) % 5]})`;
+    p.style.setProperty('--drift', (Math.random() * 24 - 12) + 'vw');
+    p.style.setProperty('--spin', (Math.random() * 720 + 360) + 'deg');
+    p.style.animationDuration = (9 + Math.random() * 8) + 's';
+    p.style.animationDelay = (-Math.random() * 14) + 's';
+    wrap.appendChild(p);
+  }
+})();
+
+/* ───────────── fireworks ───────────── */
+(function fireworks() {
+  const canvas = document.getElementById('fw');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+
+  const rockets = [], sparks = [];
+  const palette = ['#ffd166', '#ffb703', '#fb8500', '#ffedc9', '#ff9e4f', '#ffe8a3', '#f4a261'];
+
+  function launch(tx, ty) {
+    const sx = W / 2 + (Math.random() - 0.5) * W * 0.35;
+    rockets.push({ x: sx, y: H + 10, tx: tx ?? (W * (0.15 + Math.random() * 0.7)), ty: ty ?? (H * (0.12 + Math.random() * 0.38)), vy: 0, color: palette[(Math.random() * palette.length) | 0] });
+  }
+  function burst(x, y, color) {
+    const n = 68 + (Math.random() * 30 | 0);
+    for (let i = 0; i < n; i++) {
+      const a = (Math.PI * 2 * i) / n + Math.random() * 0.18;
+      const sp = 2.2 + Math.random() * 4.6;
+      sparks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, life: 1, decay: 0.011 + Math.random() * 0.014, size: 1.4 + Math.random() * 2.3, color: palette[(Math.random() * palette.length) | 0] });
+    }
+  }
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    // rockets
+    for (let i = rockets.length - 1; i >= 0; i--) {
+      const r = rockets[i];
+      if (r.vy === 0) r.vy = -Math.sqrt(2 * 0.22 * (H + 10 - r.ty));
+      r.y += r.vy; r.vy += 0.22;
+      ctx.fillStyle = r.color;
+      ctx.beginPath(); ctx.arc(r.x, r.y, 2.6, 0, Math.PI * 2); ctx.fill();
+      if (r.y <= r.ty) { burst(r.x, r.y, r.color); rockets.splice(i, 1); }
+    }
+    // sparks
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      const s = sparks[i];
+      s.x += s.vx; s.y += s.vy; s.vy += 0.038; s.vx *= 0.985; s.life -= s.decay;
+      if (s.life <= 0) { sparks.splice(i, 1); continue; }
+      ctx.globalAlpha = Math.max(0, s.life);
+      ctx.fillStyle = s.color;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.size * s.life + 0.4, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // welcome bursts
+  setTimeout(() => launch(), 500);
+  setTimeout(() => launch(), 1100);
+  // tap / click anywhere on hero => firework
+  document.querySelector('.hero').addEventListener('click', e => {
+    if (e.target.closest('button, a, .lang-toggle')) return;
+    launch(e.clientX, e.clientY * 0.75 + 30);
+  });
+  window.__celebrate = () => { for (let i = 0; i < 5; i++) setTimeout(() => launch(), i * 260); };
+})();
+
+/* ───────────── share ───────────── */
+const toast = document.getElementById('toast');
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2600);
+}
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const url = window.location.href;
+  const title = 'શુભ દિવાળી! Happy Diwali 2026 — ElectricalSkart.com';
+  const text = 'દિવાળીની હાર્દિક શુભેચ્છાઓ! Warm greetings from ElectricalSkart.com — www.ElectricalSkart.com';
+  try {
+    if (navigator.share) { await navigator.share({ title, text, url }); return; }
+    throw new Error('no-share');
+  } catch (e) {
+    try { await navigator.clipboard.writeText(text + ' ' + url); showToast('શુભેચ્છા કોપી થઈ! Copied!'); }
+    catch (err) { showToast('ElectricalSkart.com'); }
+  }
+});
+
+/* ───────────── light-a-diya ───────────── */
+(function diyas() {
+  const row = document.getElementById('diyaRow');
+  const btn = document.getElementById('lightDiyaBtn');
+  const wish = document.getElementById('diyaWish');
+  const SVG = (lit) => `
+    <svg width="52" height="46" viewBox="0 0 52 46" class="diya ${lit ? 'lit' : ''}">
+      <ellipse class="diya-glow" cx="26" cy="17" rx="17" ry="12" fill="rgba(255,190,60,.35)"/>
+      <g class="diya-flame">
+        <path d="M26 1 C 21 8, 20.5 13, 26 17.5 C 31.5 13, 31 8, 26 1 Z" fill="#ffb703" stroke="#fb8500" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M26 6.5 C 23.4 10, 23.2 12.6, 26 15 C 28.8 12.6, 28.6 10, 26 6.5 Z" fill="#fff3b0"/>
+      </g>
+      <path d="M4 27 C 8 40, 16 44, 26 44 C 36 44, 44 40, 48 27 C 36 33, 16 33, 4 27 Z" fill="#8a4b16" stroke="#5c2d0a" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M10.5 28.5 C 17 32.5, 35 32.5, 41.5 28.5 C 37 36.5, 15 36.5, 10.5 28.5 Z" fill="#c97b2d" opacity=".9"/>
+      <ellipse cx="26" cy="27" rx="22" ry="4.6" fill="#6b3a10" stroke="#ffd166" stroke-width=".8" opacity=".95"/>
+    </svg>`;
+  let lit = 0;
+  const TOTAL = 5;
+  for (let i = 0; i < TOTAL; i++) {
+    const b = document.createElement('button');
+    b.className = 'diya-btn';
+    b.innerHTML = SVG(false);
+    b.addEventListener('click', () => lightNext());
+    row.appendChild(b);
+  }
+  function lightNext() {
+    if (lit >= TOTAL) return;
+    const target = row.children[lit];
+    target.innerHTML = SVG(true);
+    lit++;
+    if (lit === TOTAL) {
+      wish.classList.add('show');
+      if (window.__celebrate) window.__celebrate();
+      showToast('શુભ દિવાળી! Happy Diwali!');
+    }
+  }
+  btn.addEventListener('click', lightNext);
+})();
+</script>
+</body>
+</html>
