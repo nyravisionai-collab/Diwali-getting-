@@ -95,21 +95,40 @@ def add_bolt(src, out, cx, cy, s, fill=GOLD):
        "-draw", f"polygon {bolt_points(cx, cy, s)}", "-stroke", "none", out)
 
 LANGS = {
-    "gu": dict(greet="શુભ દિવાળી", sub="દીપોના પ્રકાશ સાથે તમારા જીવનમાં ખુશી અને સમૃદ્ધિ પથરાય",
+    "gu": dict(greet="શુભ દિવાળી", sub="દીવાના પ્રકાશ સાથે તમારા જીવનમાં ખુશી અને સમૃદ્ધિ પથરાય",
                tag="તમારા ઘર માટે — ઈલેક્ટ્રિકલ સોલ્યુશન",
-               big_font=F_SERIF_XB, big_size=200, greet2=None),
+               big_font=F_SERIF_XB, big_size=200, greet2=None, name_font=F_SERIF_SB),
     "en": dict(greet="Happy Diwali", sub="May the festival of lights fill your home with joy & prosperity.",
                tag="Electrical solutions for a brighter home",
-               big_font=F_PLAY_BLK, big_size=225, greet2=None),
+               big_font=F_PLAY_BLK, big_size=225, greet2=None, name_font=F_PLAY_B),
     "bi": dict(greet="શુભ દિવાળી", greet2="HAPPY DIWALI",
-               sub="દીપોનો પ્રકાશ તમારા જીવનને પ્રકાશિત કરે · May your life keep shining bright",
+               sub="દીવાનો પ્રકાશ તમારું જીવન ઝળહળાવે · May your life keep shining bright",
                tag="તમારા ઘર માટે ઈલેક્ટ્રિકલ સોલ્યુશન · Electrical solutions for a brighter home",
-               big_font=F_SERIF_XB, big_size=155),
+               big_font=F_SERIF_XB, big_size=155, name_font=F_SERIF_SB),
 }
 BRAND = "E L E C T R I C A L S K A R T . C O M"
 
-def landscape(key):
+
+def name_line_text(key, name=None, blank=False):
+    """The 'Dear …' line: a typed name, a dotted write-in line, or None."""
+    if name:
+        if key == "gu":
+            return f"પ્રિય {name}"
+        if key == "en":
+            return f"Dear {name}"
+        return f"પ્રિય {name}  ·  Dear {name}"
+    if blank:
+        if key == "gu":
+            return "પ્રિય " + "." * 26
+        if key == "en":
+            return "Dear " + "." * 26
+        return "પ્રિય " + "." * 18 + "  ·  Dear " + "." * 16
+    return None
+
+def landscape(key, name=None, blank=False, out_dir=None, suffix=""):
     W, H = 2816, 1536
+    out_dir = out_dir or OUT
+    os.makedirs(out_dir, exist_ok=True)
     bg = os.path.join(TMP, f"land_bg_{key}.png")
     im(ART, "-resize", f"{W}x{H}!", bg)
     L = LANGS[key]
@@ -125,15 +144,22 @@ def landscape(key):
     tag_size = fit_size(F_SANS, 37, L["tag"], W - 900)
     lines.append(dict(text=L["sub"], font=F_SANS_B, size=sub_size, fill=CREAM, y=dots_y + 32, shadow=(0,4,"#12030c")))
     lines.append(dict(text=L["tag"], font=F_SANS, size=tag_size, fill=GOLD2, y=dots_y + 126, shadow=(0,4,"#12030c")))
+    ntext = name_line_text(key, name, blank)
+    if ntext:
+        # dark night-sky band under the brand line = best contrast on banners
+        lines.append(dict(text=ntext, font=L["name_font"], size=44, fill=CREAM,
+                          y=196, shadow=(0,4,"#12030c")))
     mid = os.path.join(TMP, f"land_mid_{key}.png")
     annotate(bg, mid, lines)
     dots(mid, W // 2, dots_y, r=6, gap=46)
-    final = os.path.join(OUT, f"ElectricalSkart-Diwali-Card-{key.upper()}-Banner.jpg")
+    final = os.path.join(out_dir, f"ElectricalSkart-Diwali-Card-{key.upper()}-Banner{suffix}.jpg")
     add_bolt(mid, final, W // 2, 72, 32)
     print("saved", final)
 
-def square(key):
+def square(key, name=None, blank=False, out_dir=None, suffix=""):
     S = 2000
+    out_dir = out_dir or OUT
+    os.makedirs(out_dir, exist_ok=True)
     bg = os.path.join(TMP, f"sq_bg_{key}.png")
     art_w = S - 220
     art_h = int(art_w * 768 / 1408)
@@ -172,6 +198,10 @@ def square(key):
     tag_size = fit_size(F_SANS, 26, L["tag"], S - 240)
     lines.append(dict(text=L["sub"], font=F_SANS_B, size=sub_size, fill=CREAM, y=dots_y + 24, shadow=(0,4,"#12030c")))
     lines.append(dict(text=L["tag"], font=F_SANS, size=tag_size, fill=GOLD2, y=dots_y + 108, shadow=(0,4,"#12030c")))
+    ntext = name_line_text(key, name, blank)
+    if ntext:
+        lines.append(dict(text=ntext, font=L["name_font"], size=36, fill=CREAM,
+                          y=dots_y + 200, shadow=(0,4,"#12030c")))
     mid = os.path.join(TMP, f"sq_mid_{key}.png")
     annotate(bg, mid, lines)
     dots(mid, S // 2, dots_y, r=5, gap=38)
@@ -179,7 +209,7 @@ def square(key):
     im(mid, "-stroke", GOLD2, "-strokewidth", "6", "-fill", "none",
        "-draw", "rectangle 30,30 1969,1969",
        "-stroke", GOLD, "-strokewidth", "2", "-draw", "rectangle 52,52 1947,1947", framed)
-    final = os.path.join(OUT, f"ElectricalSkart-Diwali-Card-{key.upper()}.jpg")
+    final = os.path.join(out_dir, f"ElectricalSkart-Diwali-Card-{key.upper()}{suffix}.jpg")
     # lightning-bolt medallion astride the top frame
     med = os.path.join(TMP, f"sq_med_{key}.png")
     im("-size", f"{S}x{S}", "xc:none",
@@ -191,9 +221,35 @@ def square(key):
     print("saved", final)
 
 if __name__ == "__main__":
-    which = sys.argv[1] if len(sys.argv) > 1 else "all"
-    for k in ["gu", "en", "bi"]:
+    import argparse, re
+    ap = argparse.ArgumentParser(
+        description="Build the ElectricalSkart Diwali 2026 greeting cards.")
+    ap.add_argument("which", nargs="?", default="all",
+                    choices=["all", "landscape", "square"], help="which shape to build")
+    ap.add_argument("--name", default=None,
+                    help='recipient name, e.g. --name "રમેશ પટેલ" — cards go to cards/personal/')
+    ap.add_argument("--no-forname", action="store_true",
+                    help="skip the -ForName write-in-name variants (plain cards stay clean)")
+    ap.add_argument("--out", default=None, help="output folder for the plain build")
+    args = ap.parse_args()
+
+    which = args.which
+    name = (args.name or "").strip() or None
+
+    def slug(s):
+        return re.sub(r"[^\w\u0a80-\u0aff]+", "-", s.strip(), flags=re.UNICODE).strip("-")[:40]
+
+    def run(k, name=None, blank=False, out_dir=None, suffix=""):
+        kw = dict(name=name, blank=blank, out_dir=out_dir, suffix=suffix)
         if which in ("all", "landscape"):
-            landscape(k)
+            landscape(k, **kw)
         if which in ("all", "square"):
-            square(k)
+            square(k, **kw)
+
+    for k in ["gu", "en", "bi"]:
+        if name:
+            run(k, name=name, out_dir=os.path.join(OUT, "personal"), suffix="-" + slug(name))
+        else:
+            run(k, out_dir=args.out or OUT)
+            if not args.no_forname:
+                run(k, blank=True, out_dir=args.out or OUT, suffix="-ForName")

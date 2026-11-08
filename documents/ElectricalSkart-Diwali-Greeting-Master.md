@@ -1,0 +1,182 @@
+# ગ્રીટિંગ માસ્ટર ડોક્યુમેન્ટ · Greeting Master
+
+દિવાળી ૨૦૬ — ElectricalSkart.com · છ વર્ઝન એક જ ફાઈલમાં: લેટર (ગુજરાતી / અંગ્રેજી / બાયલિંગ્વલ) અને ઈમેલ (ગુજરાતી / અંગ્રેજી / બાયલિંગ્વલ).
+
+## નામ કેવી રીતે ભરવું · How to fill in the name
+
+- દરેક ગ્રીટિંગની ટોચ પર «ગ્રાહકનું નામ / Customer Name» ની ખાલી લીટી છે — તેમાં નામ લખો.
+- સંબોધનની લીટીમાં પણ ખાલી જગ્યા છે: «પ્રિય ગ્રાહકશ્રી …………,» / «Dear …………,».
+- કમ્પ્યુટર પર ભરવું હોય તો: python3 tools/build_documents.py --name "રમેશ પટેલ" → નામ આપોઆપ બધે છપાય (documents/personal/).
+- કાર્ડ માટે: cards/*-ForName.jpg પર નામની ખાલી લાઇન છે; અથવા python3 tools/build_cards.py --name "રમેશ પટેલ".
+- ઈ-કાર્ડમાં «નામ લખો / Write a name» બોક્સ છે; લિંકમાં ?to=નામ પણ મૂકી શકાય.
+
+## લેટર · Letter — ગુજરાતી (Gujarati)
+
+ગ્રાહકનું નામ :  ..............................
+
+પ્રિય ગ્રાહકશ્રી ..............................,
+
+તારીખ: ૮ નવેમ્બર ૨૦૨૬ · દિવાળી (લક્ષ્મી પૂજા)
+
+આજે દિવાળીની સાંજે દેશભરમાં લાખો દીવા પ્રગટી રહ્યા છે, ત્યારે ElectricalSkart.com પરિવાર તરફથી તમને અને તમારા સમગ્ર પરિવારને દિવાળીના પાવન તહેવારની હાર્દિક શુભેચ્છાઓ — તમારો આ તહેવાર પ્રકાશ, આનંદ અને સમૃદ્ધિથી ભરપૂર રહે.
+
+દિવાળી એ પ્રકાશનો તહેવાર છે — અને પ્રકાશ અમારું ક્ષેત્ર છે. લિવિંગ રૂમ માટે ચમકદાર ઝુમ્મર, બાલ્કની માટે તહેવારની ઝાલર (ફેરી લાઈટો), ઊર્જા-કાર્યક્ષમ પંખો કે સ્માર્ટ સ્વિચ, અથવા સુરક્ષિત ઘર માટે ISI માર્કવાળા વાયર — ગમે તે જોઈતું હોય, બધું જ માત્ર એક ક્લિકના અંતરે છે: www.ElectricalSkart.com
+
+તમારા ઘરના પ્રકાશની જવાબદારી અમને સોંપવા બદલ આભાર. તમારા વિશ્વાસને અનુરૂપ અમે હંમેશા અસલી ઉત્પાદનો, વાજબી ભાવ અને હસમુખ સેવા આપવા પ્રતિબદ્ધ છીએ.
+
+મા લક્ષ્મી તમારા ઘરને ધન-ધાન્યથી ભરપૂર રાખે અને શ્રી ગણેશજી તમારા માર્ગના દરેક વિઘ્નને દૂર કરે — એવી અંતરતમ શુભેચ્છાઓ સાથે, શુભ દિવાળી!
+
+હાર્દિક શુભેચ્છાઓ અને પ્રેમ સાથે,
+
+ટીમ ElectricalSkart
+
+ELECTRICALSKART.COM
+
+www.ElectricalSkart.com
+
+> P.S. દિવાળીની વ્યસ્તતામાં ઘરની વાયરિંગ અને MCB એક વાર તપાસાવી લો — સલામતી એ જ દિવાળીની સૌથી મોટી ભેટ છે.
+
+
+## લેટર · Letter — અંગ્રેજી (English)
+
+Customer Name :  ..............................
+
+Dear ..............................,
+
+Date: 8 November 2026 · Diwali (Lakshmi Puja)
+
+As a million diyas flicker to life across the country tonight, we at ElectricalSkart.com wish you and your family a very Happy Diwali — may your celebrations sparkle with joy, prosperity and togetherness.
+
+Diwali is the festival of lights, and lights are what we know best. Whether you are shopping for a glittering new chandelier for the living room, festive fairy lights for your balcony, an energy-efficient fan, smart switches, or ISI-marked wiring for a safer home — everything is just a click away at www.ElectricalSkart.com.
+
+Thank you for trusting us with the light in your home. Your support powers everything we do, and we promise to keep delivering genuine products, honest prices and warm, friendly service — today, tomorrow and every day of the year.
+
+May Goddess Lakshmi bless your home with prosperity, may Lord Ganesha remove every obstacle from your path, and may your life shine brighter than ever — this Diwali, and always.
+
+Warm regards,
+
+Team ElectricalSkart
+
+ELECTRICALSKART.COM
+
+www.ElectricalSkart.com
+
+> P.S. While you light the diyas, do take a moment to check your home's wiring and MCBs — safety is the spark behind every happy Diwali.
+
+
+## લેટર · Letter — બાયલિંગ્વલ (Bilingual)
+
+ગ્રાહકનું નામ / Customer Name :  ..............................
+
+પ્રિય ગ્રાહકશ્રી .............................. / Dear ..............................,
+
+તારીખ / Date : ૮ નવેમ્બર ૨૦૨૬ · 8 November 2026 · દિવાળી / Diwali (લક્ષ્મી પૂજા / Lakshmi Puja)
+
+આજે દેશભરમાં લાખો દીવા પ્રગટી રહ્યા છે, ત્યારે અમે તમને દિવાળીની હાર્દિક શુભેચ્છાઓ પાઠવીએ છીએ.
+
+As a million diyas flicker to life across the country tonight, we wish you a very Happy Diwali.
+
+દિવાળી પ્રકાશનો તહેવાર છે — અને પ્રકાશ અમારું ક્ષેત્ર છે. ઝુમ્મર, ઝાલર (ફેરી લાઈટો), સ્માર્ટ સ્વિચ કે ISI માર્કવાળા વાયર — બધું જ માત્ર એક ક્લિકના અંતરે છે: www.ElectricalSkart.com
+
+Diwali is the festival of lights — and light is what we know best. From chandeliers and fairy lights to smart switches and ISI-marked wiring, everything is just a click away: www.ElectricalSkart.com
+
+તમારા વિશ્વાસને અનુરૂપ અસલી ઉત્પાદનો, વાજબી ભાવ અને હસમુખ સેવા આપવા અમે પ્રતિબદ્ધ છીએ. આભાર.
+
+We are committed to genuine products, honest prices and warm service, always. Thank you for trusting us.
+
+મા લક્ષ્મી તમારા ઘરમાં સમૃદ્ધિ લાવે અને શ્રી ગણેશજી તમારા માર્ગના દરેક વિઘ્નને દૂર કરે — શુભ દિવાળી!
+
+May Goddess Lakshmi bless your home with prosperity and may Lord Ganesha remove every obstacle from your path — Happy Diwali!
+
+હાર્દિક શુભેચ્છાઓ અને પ્રેમ સાથે / With warm regards,
+
+ટીમ ElectricalSkart / Team ElectricalSkart
+
+ELECTRICALSKART.COM
+
+www.ElectricalSkart.com
+
+> P.S. ઘરની વાયરિંગ અને MCB તપાસ્યા વિના દીવા પ્રગટાવશો નહીં — સલામતી પ્રથમ. / Check your wiring and MCBs before the lights go up — safety first, always.
+
+
+## ઈમેલ · E-mail — ગુજરાતી (Gujarati)
+
+ગ્રાહકનું નામ :  ..............................
+
+પ્રિય ગ્રાહકશ્રી ..............................,
+
+Subject: શુભ દિવાળી | ElectricalSkart.com તરફથી દિવાળીની હાર્દિક શુભેચ્છાઓ
+
+તમને અને તમારા પરિવારને દિવાળીના પાવન તહેવારની હાર્દિક શુભેચ્છાઓ! આજે તમે પ્રગટાવશો તે દરેક દીવો તમારા ઘરમાં આરોગ્ય, સમૃદ્ધિ અને આનંદ લાવે.
+
+આ તહેવારની ઋતુમાં અમારો દિવાળી સંગ્રહ જુઓ — ઝગમગતી ડેકોરેટિવ લાઈટો, આકર્ષક ઝુમ્મર, સ્માર્ટ હોમ ઉપકરણો, ISI માર્કવાળા વાયર અને તમામ ઈલેક્ટ્રિકલ સામાન — બધું જ સીધું તમારા ઘર સુધી.
+
+www.ElectricalSkart.com પર તહેવારની સંપૂર્ણ રેન્જ જુઓ અને હંમેશાની જેમ વાજબી ભાવ, અસલી ઉત્પાદનો અને હસમુખ સેવાનો લાભ લો.
+
+ElectricalSkart.com પરિવાર તરફથી તહેવારની હાર્દિક શુભેચ્છાઓ — તહેવાર માણો, સલામત રહો અને ઝળહળતા રહો!
+
+તહેવારની હાર્દિક શુભેચ્છાઓ સાથે,
+
+ટીમ ElectricalSkart
+
+ELECTRICALSKART.COM · www.ElectricalSkart.com
+
+> P.S. તમારું દિવાળી કાર્ડ ઉપર જ છે — આ ઝગમગાટ પરિવાર સાથે શેર કરો!
+
+
+## ઈમેલ · E-mail — અંગ્રેજી (English)
+
+Customer Name :  ..............................
+
+Dear ..............................,
+
+Subject: Happy Diwali from ElectricalSkart.com
+
+Wishing you and your family a very Happy Diwali! May every diya you light tonight bring health, wealth and happiness into your home.
+
+This festive season, explore our Diwali collection — sparkling decorative lights, elegant chandeliers, smart home essentials, ISI-marked wiring and everything electrical, delivered right to your door.
+
+Browse the festival range at www.ElectricalSkart.com and enjoy safe, genuine products at honest prices, with warm service — as always.
+
+Warm wishes from all of us at ElectricalSkart.com — enjoy the festival, light it up bright and stay safe!
+
+With warm festive wishes,
+
+Team ElectricalSkart
+
+ELECTRICALSKART.COM · www.ElectricalSkart.com
+
+> P.S. Your Diwali card is right above — share the sparkle with your family!
+
+
+## ઈમેલ · E-mail — બાયલિંગ્વલ (Bilingual)
+
+ગ્રાહકનું નામ / Customer Name :  ..............................
+
+પ્રિય ગ્રાહકશ્રી .............................. / Dear ..............................,
+
+Subject: શુભ દિવાળી | Happy Diwali from ElectricalSkart.com
+
+તમને અને તમારા પરિવારને દિવાળીની હાર્દિક શુભેચ્છાઓ!
+
+Wishing you and your family a very Happy Diwali! May every diya bring health, wealth and happiness into your home.
+
+આ તહેવારમાં અમારો દિવાળી સંગ્રહ જુઓ — ઝગમગતી લાઈટો, ઝુમ્મર, સ્માર્ટ ઉપકરણો અને ISI માર્કવાળી વાયરિંગ — બધું જ તમારા ઘર સુધી.
+
+Explore our Diwali collection — sparkling lights, chandeliers, smart home essentials and ISI-marked wiring, delivered to your door.
+
+www.ElectricalSkart.com પર સંપૂર્ણ રેન્જ જુઓ — વાજબી ભાવ, અસલી ઉત્પાદનો, હસમુખ સેવા.
+
+See the full range at www.ElectricalSkart.com — honest prices, genuine products, warm service.
+
+તહેવાર માણો, સલામત રહો અને ઝળહળતા રહો!
+
+Enjoy the festival, stay safe and keep shining!
+
+તહેવારની હાર્દિક શુભેચ્છાઓ સાથે / With warm festive wishes,
+
+ટીમ ElectricalSkart / Team ElectricalSkart
+
+ELECTRICALSKART.COM · www.ElectricalSkart.com
+
+> P.S. તમારું કાર્ડ ઉપર જ છે — શેર કરો! / Your Diwali card is right above — share the sparkle!
